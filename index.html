@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YeahGelato, A Trip Down Memory Lane</title>
+    <title>YeahGelato — A Trip Down Memory Lane</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -713,6 +713,116 @@
         color: var(--ink-soft);
       }
 
+      .booth-reward {
+        display: none;
+        max-width: 420px;
+        margin: 2rem auto 0;
+        opacity: 0;
+        transform: translateY(10px) scale(0.97);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      .booth-reward.show {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      .reward-ticket {
+        position: relative;
+        background:
+          repeating-linear-gradient(
+            -6deg,
+            transparent 0 10px,
+            rgba(232, 98, 31, 0.05) 10px 20px
+          ),
+          var(--nl-cream);
+        border: 2px dashed var(--nl-orange-deep);
+        border-radius: 14px;
+        padding: 1.6rem 1.4rem 1.3rem;
+        box-shadow: 3px 5px 0 rgba(74, 50, 32, 0.12);
+      }
+      .reward-ticket::before,
+      .reward-ticket::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 22px;
+        height: 22px;
+        background: var(--paper);
+        border-radius: 50%;
+        transform: translateY(-50%);
+      }
+      .reward-ticket::before {
+        left: -13px;
+      }
+      .reward-ticket::after {
+        right: -13px;
+      }
+      .reward-emoji {
+        font-size: 1.6rem;
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      .reward-ticket h3 {
+        font-family: "Baloo 2", "Fraunces", serif;
+        font-weight: 800;
+        font-size: 1.25rem;
+        color: var(--nl-orange-deep);
+        margin-bottom: 0.4rem;
+      }
+      .reward-ticket p {
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+        line-height: 1.55;
+      }
+      .reward-ticket p strong {
+        color: var(--nl-orange-deep);
+      }
+      .reward-code-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        margin: 1rem 0 0.7rem;
+      }
+      .reward-code {
+        font-family: "Special Elite", monospace;
+        font-size: 1.05rem;
+        letter-spacing: 0.06em;
+        background: #fff;
+        border: 1.5px dashed var(--nl-orange-deep);
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        color: var(--nl-brown);
+      }
+      .reward-copy {
+        font-family: "Work Sans", sans-serif;
+        font-weight: 600;
+        font-size: 0.82rem;
+        padding: 0.55rem 1rem;
+        border-radius: 20px;
+        border: 1.5px solid var(--nl-orange-deep);
+        background: var(--nl-orange);
+        color: #fff;
+        cursor: pointer;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease;
+      }
+      .reward-copy:hover {
+        transform: translateY(-1px);
+      }
+      .reward-copy.copied {
+        background: #3c5433;
+        border-color: #3c5433;
+      }
+      .reward-fine {
+        font-size: 0.7rem !important;
+        color: var(--ink-soft);
+        opacity: 0.8;
+        margin-top: 0.4rem;
+      }
+
       @media (max-width: 820px) {
         .booth-stage {
           max-width: 100%;
@@ -841,7 +951,7 @@
     <section class="intro reveal">
       <p class="eyebrow">Departure</p>
       <h2>
-        Before gelato was a flavor menu, it was a memory,
+        Before gelato was a flavor menu, it was a memory &mdash;
         <i
           >a snack after school, a bowl shared with grandma, a candy unwrapped
           on the walk home.</i
@@ -891,8 +1001,8 @@
             </div>
             <div class="postcard-face postcard-back">
               <p>
-                &ldquo;Green rice pounded flat, tossed with coconut, the smell
-                of Hanoi in autumn, sold from a basket balanced on a
+                &ldquo;Green rice pounded flat, tossed with coconut &mdash; the
+                smell of Hanoi in autumn, sold from a basket balanced on a
                 bicycle.&rdquo;
               </p>
               <p class="sign">wish you were here</p>
@@ -900,14 +1010,14 @@
           </div>
         </div>
         <div class="country-copy reveal">
-          <p class="eyebrow">Stop one: Vietnam</p>
+          <p class="eyebrow">Stop one &middot; Vietnam</p>
           <h3>Cốm Dừa &amp; Phở</h3>
           <p>
-            Cốm dừa folds young, hand-pounded rice into shredded coconut, a
-            street-side treat that shows up every autumn, wrapped in lotus leaf.
-            Alongside it, phở: the slow beef broth and fresh herbs that start a
-            thousand mornings in Vietnam. We steeped both into gelato without
-            losing what made them home in the first place.
+            Cốm dừa folds young, hand-pounded rice into shredded coconut &mdash;
+            a street-side treat that shows up every autumn, wrapped in lotus
+            leaf. Alongside it, phở: the slow beef broth and fresh herbs that
+            start a thousand mornings in Vietnam. We steeped both into gelato
+            without losing what made them home in the first place.
           </p>
           <div class="flavor-tags">
             <span class="flavor-tag">Young rice</span>
@@ -966,11 +1076,11 @@
           </div>
         </div>
         <div class="country-copy reveal">
-          <p class="eyebrow">Stop two: China</p>
+          <p class="eyebrow">Stop two &middot; China</p>
           <h3>White Rabbit Candy &amp; Sichuan Peppercorn</h3>
           <p>
-            White Rabbit is the milk candy nearly every Chinese childhood
-            shares: soft, sweet, wrapped in paper you could eat. We paired it
+            White Rabbit is the milk candy nearly every Chinese childhood shares
+            &mdash; soft, sweet, wrapped in paper you could eat. We paired it
             with something sharper: Sichuan peppercorn and sea salt, the tingly,
             savory hit found on street snacks from Chengdu to Chongqing. One
             flavor for nostalgia, one for a little numbness on the tongue.
@@ -1025,7 +1135,7 @@
             <div class="postcard-face postcard-back">
               <p>
                 &ldquo;Toast dunked in soft-boiled egg and dark soy, kopi in a
-                saucer to cool it, breakfast at the kopitiam before
+                saucer to cool it &mdash; breakfast at the kopitiam before
                 school.&rdquo;
               </p>
               <p class="sign">wish you were here</p>
@@ -1033,14 +1143,15 @@
           </div>
         </div>
         <div class="country-copy reveal">
-          <p class="eyebrow">Stop three: Singapore</p>
+          <p class="eyebrow">Stop three &middot; Singapore</p>
           <h3>Kaya Toast &amp; Hainanese Chicken Rice</h3>
           <p>
             Kaya toast is the coconut-pandan jam and butter that opens most
             Singaporean mornings, best dunked into soft-boiled egg. Chicken rice
-            is the dish everyone's family insists on ordering a specific way ,
-            poached chicken over rice cooked in its own fat and stock, chili on
-            the side. Two comfort foods, one island, folded into gelato.
+            is the dish everyone's family insists on ordering a specific way
+            &mdash; poached chicken over rice cooked in its own fat and stock,
+            chili on the side. Two comfort foods, one island, folded into
+            gelato.
           </p>
           <div class="flavor-tags">
             <span class="flavor-tag">Pandan &amp; coconut</span>
@@ -1057,8 +1168,8 @@
         <h2>The Memory Lane filter</h2>
         <p class="booth-sub">
           Snap a photo, pick your flavour country, and get your own Nostalgia
-          Lab card, torn paper, sparkles and all. Share it, tag us, come find
-          the pop-up.
+          Lab card &mdash; torn paper, sparkles and all. Share it, tag us, come
+          find the pop-up.
         </p>
 
         <div class="booth-stage" id="boothStage">
@@ -1077,8 +1188,8 @@
               <circle cx="12" cy="13" r="3.4" />
             </svg>
             <span
-              >Camera's off, tap &ldquo;Open camera&rdquo; below<br />(or upload
-              a photo instead)</span
+              >Camera's off &mdash; tap &ldquo;Open camera&rdquo; below<br />(or
+              upload a photo instead)</span
             >
           </div>
         </div>
@@ -1171,19 +1282,40 @@
           </button>
         </div>
         <p class="booth-note" id="boothNote">
-          Your photo stays on your device, nothing is uploaded anywhere.
+          Your photo stays on your device &mdash; nothing is uploaded anywhere.
         </p>
+
+        <div class="booth-reward" id="boothReward">
+          <div class="reward-ticket">
+            <span class="reward-emoji">🎉</span>
+            <h3>Shared! Here's a little something back.</h3>
+            <p>
+              Show this code at the counter for <strong>10% off</strong> your
+              next scoop.
+            </p>
+            <div class="reward-code-row">
+              <span class="reward-code" id="rewardCode">MEMORYLANE10</span>
+              <button class="reward-copy" id="rewardCopy" type="button">
+                Copy
+              </button>
+            </div>
+            <p class="reward-fine">
+              One use per customer &middot; valid at the pop-up &middot; can't
+              combine with other offers
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="closing reveal">
       <p class="eyebrow">Arrival</p>
-      <h2>Come taste <em>where you're from</em>, or somewhere new.</h2>
+      <h2>Come taste <em>where you're from</em> &mdash; or somewhere new.</h2>
       <div class="tag-ticket">
         <div class="row"><span>Destination</span><b>YeahGelato pop-up</b></div>
         <div class="row"><span>Route</span><b>VN &rarr; CN &rarr; SG</b></div>
         <div class="row">
-          <span>Dates &amp; location</span><b>announced soon, follow along</b>
+          <span>Dates &amp; location</span><b>announced soon — follow along</b>
         </div>
       </div>
     </section>
@@ -1856,7 +1988,7 @@
               !navigator.mediaDevices.getUserMedia
             ) {
               setNote(
-                "This browser can't open the camera here, try 'Upload photo' instead.",
+                "This browser can't open the camera here — try 'Upload photo' instead.",
               );
               return;
             }
@@ -1869,7 +2001,7 @@
                 placeholder.style.display = "none";
                 canvas.style.display = "block";
                 snapBtn.disabled = false;
-                setNote('Live filter preview: smile, then tap "Take photo".');
+                setNote('Live filter preview — smile, then tap "Take photo".');
                 video.addEventListener("loadedmetadata", function onMeta() {
                   video.removeEventListener("loadedmetadata", onMeta);
                   fitCanvasToStage();
@@ -1878,7 +2010,7 @@
               })
               .catch(function () {
                 setNote(
-                  'Camera access was blocked, try "Upload photo" instead.',
+                  'Camera access was blocked — try "Upload photo" instead.',
                 );
               });
           }
@@ -1924,7 +2056,7 @@
               renderComposite(img);
               hasShot = true;
               toggleShotButtons(true);
-              setNote("Nice, pick a stamp above, then save or share.");
+              setNote("Nice — pick a stamp above, then save or share.");
             };
             img.src = URL.createObjectURL(file);
           });
@@ -1935,7 +2067,7 @@
             stopCamera();
             hasShot = true;
             toggleShotButtons(true);
-            setNote("Nice, pick a stamp above, then save or share.");
+            setNote("Nice — pick a stamp above, then save or share.");
           });
 
           retakeBtn.addEventListener("click", function () {
@@ -1945,8 +2077,11 @@
             toggleShotButtons(false);
             placeholder.style.display = "flex";
             setNote(
-              "Your photo stays on your device, nothing is uploaded anywhere.",
+              "Your photo stays on your device — nothing is uploaded anywhere.",
             );
+            reward.classList.remove("show");
+            reward.style.display = "none";
+            rewardUnlocked = false;
           });
 
           function toggleShotButtons(shot) {
@@ -1985,6 +2120,21 @@
             link.click();
           });
 
+          var reward = document.getElementById("boothReward");
+          var rewardCopyBtn = document.getElementById("rewardCopy");
+          var rewardCode = document.getElementById("rewardCode");
+          var rewardUnlocked = false;
+
+          function unlockReward() {
+            if (rewardUnlocked) return;
+            rewardUnlocked = true;
+            reward.style.display = "block";
+            requestAnimationFrame(function () {
+              reward.classList.add("show");
+            });
+            reward.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }
+
           shareBtn.addEventListener("click", function () {
             canvasToBlob().then(function (blob) {
               if (!blob) return;
@@ -1997,17 +2147,44 @@
                 navigator
                   .share({
                     files: [file],
-                    title: "YeahGelato, a trip down memory lane",
+                    title: "YeahGelato — a trip down memory lane",
                     text:
                       "Got my " +
                       THEMES[country].label +
                       " stamp at the YeahGelato pop-up.",
                   })
-                  .catch(function () {});
+                  .then(function () {
+                    unlockReward();
+                  })
+                  .catch(function () {
+                    /* user cancelled the share sheet — no reward */
+                  });
               } else {
+                // no Web Share support here — download counts as "shared", since they'll post it manually
                 downloadBtn.click();
+                unlockReward();
               }
             });
+          });
+
+          rewardCopyBtn.addEventListener("click", function () {
+            var text = rewardCode.textContent;
+            function showCopied() {
+              rewardCopyBtn.textContent = "Copied!";
+              rewardCopyBtn.classList.add("copied");
+              setTimeout(function () {
+                rewardCopyBtn.textContent = "Copy";
+                rewardCopyBtn.classList.remove("copied");
+              }, 1800);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard
+                .writeText(text)
+                .then(showCopied)
+                .catch(showCopied);
+            } else {
+              showCopied();
+            }
           });
 
           window.addEventListener("resize", function () {
