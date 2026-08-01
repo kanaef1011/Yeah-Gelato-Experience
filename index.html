@@ -230,12 +230,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
       }
-      .hero-crest img{
-        width:100%;
-        height:100%;
-        object-fit:contain;
+      .hero-crest img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
       .hero h1 {
         font-size: clamp(2.6rem, 7vw, 5rem);
@@ -897,9 +896,575 @@
         outline: 2px solid var(--air-red);
         outline-offset: 3px;
       }
+
+      /* ---------- arrival / queue ---------- */
+      .arrival {
+        padding: 3.2rem 1.5rem 3rem;
+        border-bottom: 1px solid var(--line);
+        background: var(--card);
+      }
+      .arrival-inner {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .arrival-chips {
+        display: flex;
+        justify-content: center;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+        margin: 1.2rem 0 1.6rem;
+      }
+      .arrival-chip {
+        font-family: "Special Elite", monospace;
+        font-size: 0.78rem;
+        padding: 0.55rem 1rem;
+        border-radius: 20px;
+        border: 1.5px solid var(--line);
+        background: var(--paper);
+        color: var(--ink-soft);
+        cursor: pointer;
+        transition: all 0.25s ease;
+      }
+      .arrival-chip.active {
+        border-style: solid;
+        border-color: var(--air-red);
+        color: var(--air-red);
+        background: rgba(192, 57, 47, 0.06);
+      }
+      .boarding-card {
+        text-align: left;
+        background: var(--paper);
+        border: 1.5px solid var(--ink);
+        border-radius: 10px;
+        padding: 1.5rem 1.6rem 1.4rem;
+        box-shadow: 4px 6px 0 rgba(34, 49, 74, 0.08);
+      }
+      .bc-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.9rem;
+        font-family: "Special Elite", monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+      .bc-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border-top: 1px dashed var(--line);
+        font-size: 0.92rem;
+      }
+      .bc-row:first-of-type {
+        border-top: none;
+      }
+      .bc-row b {
+        font-family: "Fraunces", serif;
+        font-weight: 600;
+      }
+      .cue-number {
+        margin-top: 1.1rem;
+        text-align: center;
+        padding: 1rem;
+        border: 1.5px dashed var(--air-red);
+        border-radius: 8px;
+        background: rgba(192, 57, 47, 0.06);
+      }
+      .cue-number .lbl {
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--ink-soft);
+      }
+      .cue-number .num {
+        font-family: "Special Elite", monospace;
+        font-size: 2.1rem;
+        color: var(--air-red);
+        letter-spacing: 0.04em;
+      }
+
+      /* ---------- game ---------- */
+      .game {
+        padding: 4.5rem 1.5rem 2.5rem;
+        border-top: 1px solid var(--line);
+      }
+      .game-inner {
+        max-width: 640px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .game-inner h2 em {
+        font-style: normal;
+        color: var(--nl-orange);
+      }
+      .game-stats {
+        display: flex;
+        justify-content: center;
+        gap: 1.4rem;
+        margin: 1rem 0 0.3rem;
+        font-family: "Special Elite", monospace;
+        font-size: 0.8rem;
+        color: var(--ink-soft);
+      }
+      .game-board {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.55rem;
+        max-width: 400px;
+        margin: 1.2rem auto 1.4rem;
+      }
+      .game-card {
+        aspect-ratio: 1;
+        border-radius: 10px;
+        background: var(--nl-orange);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        cursor: pointer;
+        user-select: none;
+        transition:
+          background 0.2s ease,
+          transform 0.15s ease;
+        font-family: "Baloo 2", sans-serif;
+        font-weight: 800;
+      }
+      .game-card:active {
+        transform: scale(0.94);
+      }
+      .game-card.revealed {
+        background: var(--nl-cream);
+        color: var(--ink);
+        border: 1.5px solid var(--nl-orange-deep);
+      }
+      .game-card.matched {
+        background: var(--vn-soft);
+        color: var(--vn-deep);
+        border: 1.5px solid var(--vn);
+        cursor: default;
+      }
+      .game-msg {
+        min-height: 1.4rem;
+        font-family: "Special Elite", monospace;
+        font-size: 0.8rem;
+        color: var(--ink-soft);
+        margin-bottom: 0.6rem;
+      }
+      .game-actions {
+        display: flex;
+        justify-content: center;
+        gap: 0.7rem;
+        flex-wrap: wrap;
+      }
+      .game-btn {
+        font-family: "Baloo 2", sans-serif;
+        font-weight: 700;
+        font-size: 0.86rem;
+        padding: 0.6rem 1.2rem;
+        border-radius: 24px;
+        border: 1.5px solid var(--nl-orange-deep);
+        background: var(--nl-orange);
+        color: #fff;
+        cursor: pointer;
+        box-shadow: 2px 3px 0 rgba(185, 67, 15, 0.3);
+        transition: transform 0.2s ease;
+      }
+      .game-btn:hover {
+        transform: translateY(-1px);
+      }
+      .game-btn.ghost {
+        background: transparent;
+        color: var(--nl-orange-deep);
+        box-shadow: none;
+      }
+      .game-save {
+        display: none;
+        gap: 0.6rem;
+        justify-content: center;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+      }
+      .game-save input {
+        font-family: inherit;
+        font-size: 0.88rem;
+        padding: 0.55rem 0.8rem;
+        border-radius: 20px;
+        border: 1.5px solid var(--line);
+        background: #fff;
+        max-width: 200px;
+      }
+
+      /* ---------- leaderboard ---------- */
+      .leaderboard {
+        padding: 1rem 1.5rem 4.5rem;
+      }
+      .leaderboard-inner {
+        max-width: 440px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .lb-list {
+        list-style: none;
+        margin: 1.2rem 0 0;
+        padding: 0;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        overflow: hidden;
+        background: var(--card);
+        text-align: left;
+      }
+      .lb-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.6rem 1rem;
+        font-size: 0.88rem;
+        border-top: 1px solid var(--line);
+      }
+      .lb-list li:first-child {
+        border-top: none;
+      }
+      .lb-list li.me {
+        background: rgba(232, 98, 31, 0.08);
+        font-weight: 600;
+      }
+      .lb-rank {
+        color: var(--ink-soft);
+        width: 1.7rem;
+        display: inline-block;
+        font-family: "Special Elite", monospace;
+      }
+      .lb-empty {
+        padding: 1.2rem;
+        font-size: 0.85rem;
+        color: var(--ink-soft);
+        text-align: center;
+      }
+      .lb-note {
+        margin-top: 0.8rem;
+        font-family: "Special Elite", monospace;
+        font-size: 0.68rem;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- meeting booking ---------- */
+      .booking {
+        padding: 4.5rem 1.5rem 3rem;
+        border-top: 1px solid var(--line);
+        background: var(--card);
+      }
+      .booking-inner {
+        max-width: 560px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .slot-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 0.6rem;
+        margin: 1.4rem 0;
+      }
+      .slot-btn {
+        padding: 0.7rem 0.6rem;
+        border: 1.5px dashed var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+        font-family: inherit;
+        font-size: 0.82rem;
+        cursor: pointer;
+        text-align: center;
+        color: var(--ink);
+      }
+      .slot-btn .d {
+        display: block;
+        font-family: "Special Elite", monospace;
+        font-size: 0.66rem;
+        color: var(--ink-soft);
+        margin-bottom: 0.15rem;
+      }
+      .slot-btn.selected {
+        border-style: solid;
+        border-color: var(--nl-orange-deep);
+        background: var(--nl-cream);
+      }
+      .book-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        margin-top: 1rem;
+        text-align: left;
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .book-form input {
+        padding: 0.6rem 0.8rem;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 0.9rem;
+        background: #fff;
+      }
+      .book-confirm {
+        display: none;
+        margin-top: 1.4rem;
+        text-align: left;
+      }
+      .booking-note {
+        margin-top: 1rem;
+        font-family: "Special Elite", monospace;
+        font-size: 0.68rem;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- departure board ---------- */
+      .departure {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 4.5rem 1.5rem 4.5rem;
+        text-align: center;
+      }
+      .departure .eyebrow {
+        color: rgba(239, 232, 216, 0.65);
+      }
+      .departure h2 {
+        color: var(--paper);
+        font-size: clamp(1.7rem, 3.8vw, 2.4rem);
+        margin-bottom: 0.4rem;
+      }
+      .departure h2 em {
+        font-style: italic;
+        color: #f5c542;
+      }
+      .departure p.sub {
+        color: rgba(239, 232, 216, 0.7);
+        font-size: 0.92rem;
+        max-width: 44ch;
+        margin: 0 auto 1.6rem;
+      }
+      .board {
+        max-width: 560px;
+        margin: 0 auto;
+        background: #111a2e;
+        border: 1px solid rgba(239, 232, 216, 0.15);
+        border-radius: 8px;
+        font-family: "Special Elite", monospace;
+        font-size: 0.8rem;
+        overflow: hidden;
+        text-align: left;
+      }
+      .board-row {
+        display: grid;
+        grid-template-columns: 1.3fr 0.8fr 1fr 1fr;
+        gap: 0.4rem;
+        padding: 0.6rem 0.9rem;
+        border-top: 1px solid rgba(239, 232, 216, 0.1);
+        color: #f5c542;
+      }
+      .board-row:first-child {
+        border-top: none;
+        color: rgba(239, 232, 216, 0.55);
+        text-transform: uppercase;
+        font-size: 0.62rem;
+      }
+      .board-row span:last-child {
+        text-align: right;
+      }
+      .departure-note {
+        margin-top: 1.6rem;
+        font-family: "Special Elite", monospace;
+        font-size: 0.7rem;
+        color: rgba(239, 232, 216, 0.6);
+      }
+
+      /* ---------- landing scene (intro) ---------- */
+      .landing-scene {
+        min-height: 38vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.2rem;
+        padding: 2.5rem 1.5rem;
+        background: var(--ink);
+        overflow: hidden;
+      }
+      .landing-sky {
+        position: relative;
+        width: 100%;
+        max-width: 340px;
+        height: 60px;
+      }
+      .landing-plane {
+        width: 46px;
+        height: 46px;
+        color: #f5c542;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -30px) translateX(-260%) rotate(110deg);
+        opacity: 0;
+        animation: planeLand 2s cubic-bezier(0.22, 0.72, 0.28, 1) forwards;
+      }
+      .runway {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 6px;
+        height: 2px;
+        background-image: repeating-linear-gradient(
+          90deg,
+          rgba(239, 232, 216, 0.5) 0 14px,
+          transparent 14px 28px
+        );
+      }
+      .arrival-sign {
+        text-align: center;
+        opacity: 0;
+        transform: translateY(-10px);
+        animation: signDrop 0.7s ease forwards;
+        animation-delay: 1.7s;
+      }
+      .sign-label {
+        display: block;
+        font-family: "Special Elite", monospace;
+        font-size: 1.1rem;
+        letter-spacing: 0.06em;
+        color: #f5c542;
+        text-transform: uppercase;
+      }
+      .sign-sub {
+        display: block;
+        margin-top: 0.3rem;
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 0.95rem;
+        color: rgba(239, 232, 216, 0.75);
+      }
+      @keyframes planeLand {
+        0% {
+          transform: translate(-50%, -30px) translateX(-260%) rotate(110deg);
+          opacity: 0;
+        }
+        55% {
+          transform: translate(-50%, 0) translateX(0) rotate(90deg);
+          opacity: 1;
+        }
+        75% {
+          transform: translate(-50%, 6px) translateX(0) rotate(95deg);
+        }
+        100% {
+          transform: translate(-50%, 0) translateX(0) rotate(90deg);
+          opacity: 1;
+        }
+      }
+      @keyframes signDrop {
+        0% {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ---------- departure scene (outro) ---------- */
+      .takeoff-sky {
+        position: relative;
+        width: 100%;
+        max-width: 340px;
+        height: 60px;
+        margin: 0 auto 1rem;
+      }
+      .takeoff-plane {
+        width: 46px;
+        height: 46px;
+        color: #f5c542;
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translate(-50%, 0) rotate(90deg);
+        opacity: 1;
+      }
+      .departure.in .takeoff-plane {
+        animation: planeTakeoff 1.8s ease-in forwards;
+        animation-delay: 0.3s;
+      }
+      @keyframes planeTakeoff {
+        0% {
+          transform: translate(-50%, 0) rotate(90deg);
+          opacity: 1;
+        }
+        60% {
+          transform: translate(20%, -50px) rotate(65deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(160%, -150px) rotate(50deg);
+          opacity: 0;
+        }
+      }
+      .departure .farewell {
+        margin-top: 1rem;
+        font-family: "Special Elite", monospace;
+        font-size: 0.82rem;
+        color: rgba(239, 232, 216, 0.75);
+        opacity: 0;
+      }
+      .departure.in .farewell {
+        animation: fadeUp 0.8s ease forwards;
+        animation-delay: 1.5s;
+      }
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .landing-plane,
+        .arrival-sign,
+        .takeoff-plane,
+        .departure .farewell {
+          animation: none !important;
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      }
     </style>
   </head>
   <body>
+    <section class="landing-scene" id="landingScene" aria-hidden="true">
+      <div class="landing-sky">
+        <svg
+          class="landing-plane"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2.5 1.5V22l4-1 4 1v-1.5L13 19v-5.5l8 2.5z"
+            fill="currentColor"
+          />
+        </svg>
+        <div class="runway"></div>
+      </div>
+      <div class="arrival-sign">
+        <span class="sign-label">&#9992; Arrivals</span>
+        <span class="sign-sub">Welcome to Memory Lane</span>
+      </div>
+    </section>
+
     <div class="passbar">
       <div class="passbar-mark"><span class="dot"></span>YeahGelato</div>
       <div class="stamps" aria-label="Countries visited so far">
@@ -909,8 +1474,65 @@
       </div>
     </div>
 
+    <section class="arrival reveal" id="arrivalSection">
+      <div class="arrival-inner">
+        <p class="eyebrow">Immigration &middot; Hall 2</p>
+        <h2>Welcome. Which flight did you land on?</h2>
+        <div
+          class="arrival-chips"
+          role="group"
+          aria-label="Choose your arriving flight"
+        >
+          <button
+            class="arrival-chip"
+            data-country="vn"
+            data-flight="VN 1988"
+            type="button"
+          >
+            🇻🇳 VN 1988
+          </button>
+          <button
+            class="arrival-chip"
+            data-country="cn"
+            data-flight="CN 3021"
+            type="button"
+          >
+            🇨🇳 CN 3021
+          </button>
+          <button
+            class="arrival-chip"
+            data-country="sg"
+            data-flight="SG 0725"
+            type="button"
+          >
+            🇸🇬 SG 0725
+          </button>
+        </div>
+
+        <div class="boarding-card" id="boardingCard" style="display: none">
+          <div class="bc-head">
+            <span>Arrival card</span><span id="bcFlight">&mdash;</span>
+          </div>
+          <div class="bc-row">
+            <span>Arriving from</span><b id="bcFrom">&mdash;</b>
+          </div>
+          <div class="bc-row">
+            <span>Terminal</span><b>Memory Lane, Gate 3</b>
+          </div>
+          <div class="bc-row">
+            <span>Status</span><b>Cleared for tasting</b>
+          </div>
+          <div class="cue-number">
+            <div class="lbl">Your queue number</div>
+            <div class="num" id="cueNumber">&mdash;</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="hero">
-      <div class="hero-crest"><img src="./yeah gelato logo.webp" alt="YeahGelato logo" /></div>
+      <div class="hero-crest">
+        <img src="./yeah gelato logo.webp" alt="YeahGelato logo" />
       </div>
       <h1>A trip down<br /><em>memory lane</em></h1>
       <p class="tag">A YeahGelato pop-up · three countries, one childhood</p>
@@ -1308,6 +1930,103 @@
       </div>
     </section>
 
+    <section class="game reveal">
+      <div class="game-inner">
+        <p class="eyebrow">Baggage claim</p>
+        <h2>Match the <em>flavour</em> memory game</h2>
+        <p
+          style="
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+            max-width: 44ch;
+            margin: 0.6rem auto 0;
+          "
+        >
+          Flip two cards at a time and match every flavour pair before you run
+          out of moves.
+        </p>
+        <div class="game-stats">
+          <span>Moves: <b id="gameMoves">0</b></span>
+          <span>Matched: <b id="gameMatched">0</b>/6</span>
+          <span>Time: <b id="gameTime">0s</b></span>
+        </div>
+        <div class="game-board" id="gameBoard"></div>
+        <p class="game-msg" id="gameMsg"></p>
+        <div class="game-actions">
+          <button class="game-btn" id="gameStartBtn" type="button">
+            Start game
+          </button>
+          <button
+            class="game-btn ghost"
+            id="gameResetBtn"
+            type="button"
+            style="display: none"
+          >
+            Play again
+          </button>
+        </div>
+        <div class="game-save" id="gameSave">
+          <input
+            type="text"
+            id="gamePlayerName"
+            placeholder="Your name for the board"
+            maxlength="18"
+          />
+          <button class="game-btn" id="gameSaveBtn" type="button">
+            Save my score
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="leaderboard reveal">
+      <div class="leaderboard-inner">
+        <p class="eyebrow">Departures board</p>
+        <h2>Top scores today</h2>
+        <ul class="lb-list" id="lbList"></ul>
+        <p class="lb-note">
+          Scores are saved on this device only &mdash; ask staff about the
+          in-store leaderboard for pop-up-wide rankings.
+        </p>
+      </div>
+    </section>
+
+    <section class="booking reveal">
+      <div class="booking-inner">
+        <p class="eyebrow">Trade desk</p>
+        <h2>Skip the line &mdash; get your cue number</h2>
+        <p style="color: var(--ink-soft); font-size: 0.95rem">
+          Pop in your name and email and we'll hold your spot in line.
+        </p>
+        <div class="book-form" id="queueForm">
+          <input type="text" id="queueName" placeholder="Full name" />
+          <input type="email" id="queueEmail" placeholder="Email" />
+          <button class="game-btn" id="queueSubmitBtn" type="button">
+            Get my cue number
+          </button>
+        </div>
+        <div class="boarding-card" id="queueCard" style="display: none">
+          <div class="bc-head">
+            <span>Queue ticket</span><span id="queueIssued">&mdash;</span>
+          </div>
+          <div class="bc-row">
+            <span>Name</span><b id="queueNameOut">&mdash;</b>
+          </div>
+          <div class="bc-row">
+            <span>Ahead of you</span><b id="queueAhead">&mdash;</b>
+          </div>
+          <div class="cue-number">
+            <div class="lbl">Your queue number</div>
+            <div class="num" id="queueCueNumber">&mdash;</div>
+          </div>
+        </div>
+        <p class="booking-note">
+          This is a demo queue running on your device only &mdash; ask us at the
+          counter about the live version.
+        </p>
+      </div>
+    </section>
+
     <section class="closing reveal">
       <p class="eyebrow">Arrival</p>
       <h2>Come taste <em>where you're from</em>, or somewhere new.</h2>
@@ -1318,6 +2037,26 @@
           <span>Dates &amp; location</span><b>announced soon — follow along</b>
         </div>
       </div>
+    </section>
+
+    <section class="departure reveal" id="departureScene">
+      <p class="eyebrow">Final call</p>
+      <div class="takeoff-sky">
+        <svg
+          class="takeoff-plane"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2.5 1.5V22l4-1 4 1v-1.5L13 19v-5.5l8 2.5z"
+            fill="currentColor"
+          />
+        </svg>
+        <div class="runway"></div>
+      </div>
+      <h2>Thanks for stopping by &mdash; <em>safe travels.</em></h2>
+      <p class="farewell" id="farewellNote">Safe travels, passenger.</p>
     </section>
 
     <footer>
@@ -2194,6 +2933,293 @@
             } else if (stream) {
               fitCanvasToStage();
             }
+          });
+        })();
+      })();
+    </script>
+
+    <script>
+      (function () {
+        /* ---------- arrival card + queue number ---------- */
+        var COUNTRY_LABEL = { vn: "Vietnam", cn: "China", sg: "Singapore" };
+        var boardingCard = document.getElementById("boardingCard");
+        var bcFlight = document.getElementById("bcFlight");
+        var bcFrom = document.getElementById("bcFrom");
+        var cueNumberEl = document.getElementById("cueNumber");
+        var farewellNote = document.getElementById("farewellNote");
+
+        var tripState = JSON.parse(sessionStorage.getItem("yg_trip") || "{}");
+
+        function saveTrip() {
+          sessionStorage.setItem("yg_trip", JSON.stringify(tripState));
+        }
+
+        function renderDepartureBoard() {
+          var bits = [];
+          bits.push(
+            tripState.cue
+              ? "Safe travels, passenger " + tripState.cue + "."
+              : "Safe travels.",
+          );
+          if (tripState.meeting)
+            bits.push("See you at your meeting on " + tripState.meeting + ".");
+          farewellNote.textContent = bits.join(" ");
+        }
+
+        document.querySelectorAll(".arrival-chip").forEach(function (chip) {
+          chip.addEventListener("click", function () {
+            document.querySelectorAll(".arrival-chip").forEach(function (c) {
+              c.classList.remove("active");
+            });
+            chip.classList.add("active");
+            var country = chip.getAttribute("data-country");
+            var flight = chip.getAttribute("data-flight");
+            var dot = document.getElementById("dot-" + country);
+            if (dot) dot.classList.add("on");
+
+            if (!tripState.cue) {
+              var num = Math.floor(Math.random() * 900) + 100;
+              tripState.cue = "A-" + num;
+            }
+            tripState.country = country;
+            tripState.flight = flight;
+            saveTrip();
+
+            bcFlight.textContent = flight;
+            bcFrom.textContent = COUNTRY_LABEL[country];
+            cueNumberEl.textContent = tripState.cue;
+            boardingCard.style.display = "block";
+            renderDepartureBoard();
+          });
+        });
+
+        // remember which flavour they picked in the photo booth, for the departure summary
+        document.querySelectorAll(".booth-chip").forEach(function (chip) {
+          chip.addEventListener("click", function () {
+            var country = chip.getAttribute("data-country");
+            tripState.flavour = COUNTRY_LABEL[country] + " stamp";
+            saveTrip();
+            renderDepartureBoard();
+          });
+        });
+
+        renderDepartureBoard();
+
+        /* ---------- memory match game ---------- */
+        (function () {
+          var boardEl = document.getElementById("gameBoard");
+          var movesEl = document.getElementById("gameMoves");
+          var matchedEl = document.getElementById("gameMatched");
+          var timeEl = document.getElementById("gameTime");
+          var msgEl = document.getElementById("gameMsg");
+          var startBtn = document.getElementById("gameStartBtn");
+          var resetBtn = document.getElementById("gameResetBtn");
+          var saveRow = document.getElementById("gameSave");
+          var nameInput = document.getElementById("gamePlayerName");
+          var saveBtn = document.getElementById("gameSaveBtn");
+
+          var EMOJI = ["🍜", "🥥", "🍬", "🌶️", "🍚", "🍞"];
+          var cards = [];
+          var flipped = [];
+          var moves = 0,
+            matched = 0,
+            seconds = 0,
+            timerId = null,
+            locked = false,
+            finalScore = 0;
+
+          function shuffledDeck() {
+            var deck = EMOJI.concat(EMOJI).map(function (e, i) {
+              return { id: i, val: e };
+            });
+            for (var i = deck.length - 1; i > 0; i--) {
+              var j = Math.floor(Math.random() * (i + 1));
+              var t = deck[i];
+              deck[i] = deck[j];
+              deck[j] = t;
+            }
+            return deck;
+          }
+
+          function tick() {
+            seconds++;
+            timeEl.textContent = seconds + "s";
+          }
+
+          function buildBoard() {
+            boardEl.innerHTML = "";
+            cards = shuffledDeck();
+            cards.forEach(function (c, idx) {
+              var el = document.createElement("div");
+              el.className = "game-card";
+              el.textContent = "?";
+              el.setAttribute("data-idx", idx);
+              el.addEventListener("click", function () {
+                onCardClick(el, c);
+              });
+              boardEl.appendChild(el);
+            });
+          }
+
+          function onCardClick(el, card) {
+            if (
+              locked ||
+              el.classList.contains("revealed") ||
+              el.classList.contains("matched")
+            )
+              return;
+            el.classList.add("revealed");
+            el.textContent = card.val;
+            flipped.push({ el: el, card: card });
+            if (flipped.length === 2) {
+              moves++;
+              movesEl.textContent = moves;
+              locked = true;
+              var a = flipped[0],
+                b = flipped[1];
+              if (a.card.val === b.card.val) {
+                a.el.classList.add("matched");
+                b.el.classList.add("matched");
+                matched++;
+                matchedEl.textContent = matched;
+                flipped = [];
+                locked = false;
+                if (matched === EMOJI.length) finishGame();
+              } else {
+                setTimeout(function () {
+                  a.el.classList.remove("revealed");
+                  b.el.classList.remove("revealed");
+                  a.el.textContent = "?";
+                  b.el.textContent = "?";
+                  flipped = [];
+                  locked = false;
+                }, 700);
+              }
+            }
+          }
+
+          function finishGame() {
+            clearInterval(timerId);
+            finalScore = Math.max(50, 1000 - moves * 15 - seconds * 3);
+            msgEl.textContent =
+              "Matched everything in " +
+              moves +
+              " moves and " +
+              seconds +
+              "s — score: " +
+              finalScore;
+            resetBtn.style.display = "inline-flex";
+            saveRow.style.display = "flex";
+          }
+
+          function startGame() {
+            moves = 0;
+            matched = 0;
+            seconds = 0;
+            flipped = [];
+            locked = false;
+            finalScore = 0;
+            movesEl.textContent = "0";
+            matchedEl.textContent = "0";
+            timeEl.textContent = "0s";
+            msgEl.textContent = "";
+            saveRow.style.display = "none";
+            resetBtn.style.display = "none";
+            startBtn.style.display = "none";
+            buildBoard();
+            clearInterval(timerId);
+            timerId = setInterval(tick, 1000);
+          }
+
+          startBtn.addEventListener("click", startGame);
+          resetBtn.addEventListener("click", startGame);
+
+          saveBtn.addEventListener("click", function () {
+            var name = (nameInput.value || "Traveller").trim().slice(0, 18);
+            var lb = JSON.parse(localStorage.getItem("yg_leaderboard") || "[]");
+            lb.push({
+              name: name,
+              score: finalScore,
+              date: new Date().toLocaleDateString(),
+            });
+            lb.sort(function (a, b) {
+              return b.score - a.score;
+            });
+            lb = lb.slice(0, 10);
+            localStorage.setItem("yg_leaderboard", JSON.stringify(lb));
+            renderLeaderboard(name, finalScore);
+            saveRow.style.display = "none";
+            msgEl.textContent = "Saved! Check the leaderboard below.";
+          });
+
+          function renderLeaderboard(highlightName, highlightScore) {
+            var list = document.getElementById("lbList");
+            var lb = JSON.parse(localStorage.getItem("yg_leaderboard") || "[]");
+            list.innerHTML = "";
+            if (!lb.length) {
+              list.innerHTML =
+                '<li class="lb-empty">No scores yet — be the first to play the game above.</li>';
+              return;
+            }
+            lb.forEach(function (entry, i) {
+              var li = document.createElement("li");
+              if (
+                highlightName &&
+                entry.name === highlightName &&
+                entry.score === highlightScore
+              ) {
+                li.classList.add("me");
+              }
+              li.innerHTML =
+                '<span><span class="lb-rank">#' +
+                (i + 1) +
+                "</span>" +
+                entry.name +
+                "</span><span>" +
+                entry.score +
+                "</span>";
+              list.appendChild(li);
+            });
+          }
+          renderLeaderboard();
+        })();
+
+        /* ---------- queue signup (demo only, not wired to a backend) ---------- */
+        (function () {
+          var form = document.getElementById("queueForm");
+          var nameInput = document.getElementById("queueName");
+          var emailInput = document.getElementById("queueEmail");
+          var submitBtn = document.getElementById("queueSubmitBtn");
+          var card = document.getElementById("queueCard");
+          var issuedEl = document.getElementById("queueIssued");
+          var nameOutEl = document.getElementById("queueNameOut");
+          var aheadEl = document.getElementById("queueAhead");
+          var cueEl = document.getElementById("queueCueNumber");
+
+          submitBtn.addEventListener("click", function () {
+            var name = nameInput.value.trim();
+            var email = emailInput.value.trim();
+            nameInput.style.borderColor = name ? "" : "var(--air-red)";
+            emailInput.style.borderColor = email ? "" : "var(--air-red)";
+            if (!name || !email) return;
+
+            var cue =
+              tripState.cue || "A-" + (Math.floor(Math.random() * 900) + 100);
+            var ahead = Math.floor(Math.random() * 12) + 1;
+
+            tripState.cue = cue;
+            saveTrip();
+            renderDepartureBoard();
+
+            issuedEl.textContent = new Date().toLocaleTimeString([], {
+              hour: "2-digit",
+              minute: "2-digit",
+            });
+            nameOutEl.textContent = name;
+            aheadEl.textContent = ahead + (ahead === 1 ? " party" : " parties");
+            cueEl.textContent = cue;
+            form.style.display = "none";
+            card.style.display = "block";
           });
         })();
       })();
